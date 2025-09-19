@@ -10,30 +10,39 @@
 
 
 ### Step 2: Create Backup Plan
+
 - Go to **Backup Plans** → **Create**.
-- Name: `DailyBackupPlan`  
+- Name: `DailyBackupPlan`
+  
   **Add rule:**  
   &nbsp;&nbsp;&nbsp;&nbsp;• **Name:** `DailyBackupRule`  
   &nbsp;&nbsp;&nbsp;&nbsp;• **Frequency:** Daily @ 9:00 PM UTC  
   &nbsp;&nbsp;&nbsp;&nbsp;• **Retention:** 30 days  
   &nbsp;&nbsp;&nbsp;&nbsp;• **Vault:** `myBackupVault`
 
-
 ### Step 3: Assign Resources
 
-- Select DailyBackupPlan → Assign resources.
+- Select `DailyBackupPlan` → **Assign resources**.
+
 ---
-**Name:** BackupEC2Resources.
-**Type:** EC2 instance.  
-**Instance ID:** i-0123456789abcdef0. 
+
+### Name: `BackupEC2Resources`  
+**Type:** EC2 instance  
+**Instance ID:** `i-0123456789abcdef0`
+
 ---
+
 ### Step 4: Run On-Demand Backup
 
-- Backup Plan → Create on-demand backup.
-  &nbsp;&nbsp;&nbsp;&nbsp;• **Resource type:** EC2 instance |
-  &nbsp;&nbsp;&nbsp;&nbsp;• **ID:** i-0123456789abcdef0 |
-  &nbsp;&nbsp;&nbsp;&nbsp;• **Vault:** myBackupVault |
-- Monitor under Backup Jobs. 
+- Navigate to: **Backup Plan** → **Create on-demand backup**
+
+- Set the following:
+  - **Resource type:** EC2 instance  
+  - **ID:** `i-0123456789abcdef0`  
+  - **Vault:** `myBackupVault`
+
+- Monitor the progress under **Backup Jobs**
+
 
 ### Step 5: Automation (Snapshots)
 
