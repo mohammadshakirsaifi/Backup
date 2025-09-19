@@ -55,6 +55,10 @@
  - Attach to an existing VM
 
 ### ✅ Summary
+**Compute Engine Snapshots** via:
+- Cloud Functions + Cloud Scheduler, **or**
+- Native Snapshot Schedules
+→ Restore using snapshot-created disks
 
 #### GCP Backup Approaches:
   - Automated Snapshots via Cloud Functions + Scheduler
