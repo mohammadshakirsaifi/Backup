@@ -86,12 +86,12 @@
 
 ### Step 6: Restore from Backup or Snapshot
 
-- Go to: Vault → Backup Items → VM → Restore VM
-- Select a restore point
-#### Choose to restore to:
+1.  Go to: Vault → Backup Items → VM → Restore VM
+2.  Select a restore point
+3.   Choose to restore to:
 - Original VM, or
 - New VM
-- Confirm restore.
+4. Confirm restore.
 
 ### ✅ Summary
 Azure Backup Flow:
