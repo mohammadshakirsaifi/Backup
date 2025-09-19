@@ -1,17 +1,18 @@
 # 🔹 2. Backup Solution Using AWS EC2 Instances
 ### Step 1: Create Backup Vault
 - Console → AWS Backup → Backup vaults → Create vault.
-  | **Name:** myBackupVault
-  | **Encryption:** Default AWS key or CMK
+ &nbsp;&nbsp;&nbsp;&nbsp;• **Name:** myBackupVault
+ &nbsp;&nbsp;&nbsp;&nbsp;• **Encryption:** Default AWS key or CMK
 
 ### Step 2: Create Backup Plan
-- Go to Backup Plans → Create.
-- Name: DailyBackupPlan.
-| **Add rule:**
-| **Name:** DailyBackupRule
-| **Frequency:** Daily @ 9:00 PM UTC
-| **Retention:** 30 days
-| **Vault:** myBackupVault
+- Go to **Backup Plans** → **Create**.
+- Name: `DailyBackupPlan`  
+  **Add rule:**  
+  &nbsp;&nbsp;&nbsp;&nbsp;• **Name:** `DailyBackupRule`  
+  &nbsp;&nbsp;&nbsp;&nbsp;• **Frequency:** Daily @ 9:00 PM UTC  
+  &nbsp;&nbsp;&nbsp;&nbsp;• **Retention:** 30 days  
+  &nbsp;&nbsp;&nbsp;&nbsp;• **Vault:** `myBackupVault`
+
 
 ### Step 3: Assign Resources
 
@@ -24,9 +25,9 @@
 ### Step 4: Run On-Demand Backup
 
 - Backup Plan → Create on-demand backup.
-| **Resource type:** EC2 instance |
-| **ID:** i-0123456789abcdef0 |
-| **Vault:** myBackupVault |
+  &nbsp;&nbsp;&nbsp;&nbsp;• **Resource type:** EC2 instance |
+  &nbsp;&nbsp;&nbsp;&nbsp;• **ID:** i-0123456789abcdef0 |
+  &nbsp;&nbsp;&nbsp;&nbsp;• **Vault:** myBackupVault |
 - Monitor under Backup Jobs. 
 
 ### Step 5: Automation (Snapshots)
