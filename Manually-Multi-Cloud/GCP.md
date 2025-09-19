@@ -40,25 +40,25 @@
 
 1. Go to: Console → Cloud Scheduler → Create job
 2. Configure:
-   - Name: daily-vm-snapshot-job
-   - Frequency: 0 21 * * * (daily @ 9 PM UTC)
-   - Target: HTTP → Trigger the Cloud Function
+   - **Name:** daily-vm-snapshot-job
+   - **Frequency:** 0 21 * * * (daily @ 9 PM UTC)
+   - **Target:** HTTP → Trigger the Cloud Function
 
 ### Step 4: Native Snapshot Schedule (Simpler Option)
 
 1. Go to: Console → Compute Engine → Snapshots → Snapshot schedules
 2. Create a schedule:
-   - Name: daily-snapshot-schedule
-   - Frequency: Daily @ 9 PM IST (≈15:30 UTC)
-   - Retention: 30 days
+   - **Name:** daily-snapshot-schedule
+   - **Frequency:** Daily @ 9 PM IST (≈15:30 UTC)
+   - **Retention:** 30 days
 
 ### Step 5: Restore VM from Snapshot
 
 1. Go to: Console → Snapshots
 2. Select the snapshot → Create Disk
 3. Use the disk as:
-  - Boot disk for a new VM, or
-  - Attach to an existing VM
+ - Boot disk for a new VM, or
+ - Attach to an existing VM
 
 ### ✅ Summary
 
