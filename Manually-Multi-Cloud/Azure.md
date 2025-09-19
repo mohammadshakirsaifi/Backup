@@ -83,3 +83,21 @@
   }
 }
 ```
+
+### Step 6: Restore from Backup or Snapshot
+
+- Go to: Vault → Backup Items → VM → Restore VM
+- Select a restore point
+#### Choose to restore to:
+- Original VM, or
+- New VM
+- Confirm restore.
+
+### ✅ Summary
+Azure Backup Flow:
+
+- Recovery Services Vault
+- Backup Policy
+- (Optional) Logic App for snapshots
+- On-demand or scheduled backups
+- Easy restore from portal
