@@ -1,17 +1,14 @@
 # 🔹 3. Backup Solution Using GCP Compute Engine VMs
 
 ## Step 1: Create Cloud Storage Bucket
-
 1. Go to: **Console** → **Cloud Storage** → **Buckets** → **Create**
 2. Fill in the following:
    - **Name:** `my-backup-bucket`
    - **Location:** Regional (e.g., `asia-south1`)
    - **Storage Class:** Standard
-
 ---
 
 ## Step 2: Cloud Function for Snapshots
-
 1. Go to: **Console** → **Cloud Functions** → **Create**
 2. Provide the following:
    - **Name:** `createVMSnapshot`
@@ -37,7 +34,6 @@
            project=PROJECT, zone=ZONE, disk=DISK_N_
 
 ### Step 3: Schedule with Cloud Scheduler
-
 1. Go to: Console → Cloud Scheduler → Create job
 2. Configure:
  - **Name:** daily-vm-snapshot-job
@@ -45,7 +41,6 @@
  - **Target:** HTTP → Trigger the Cloud Function
 
 ### Step 4: Native Snapshot Schedule (Simpler Option)
-
 1. Go to: Console → Compute Engine → Snapshots → Snapshot schedules
 2. Create a schedule:
   - **Name:** daily-snapshot-schedule
@@ -53,7 +48,6 @@
   - **Retention:** 30 days
 
 ### Step 5: Restore VM from Snapshot
-
 1. Go to: Console → Snapshots
 2. Select the snapshot → Create Disk
 3. Use the disk as:
