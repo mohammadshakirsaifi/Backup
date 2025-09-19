@@ -1,108 +1,85 @@
-🔹 1. Backup Solution Using Azure VMs
-Step 1: Create a Recovery Services Vault
+# 🔹 1. Backup Solution Using Azure VMs
 
-Sign in to Azure Portal.
+## Step 1: Create a Recovery Services Vault
 
-Go to Backup Center → + Add → choose Recovery Services Vault.
+1. Sign in to the **Azure Portal**.
+2. Navigate to: **Backup Center** → **+ Add** → Choose **Recovery Services Vault**.
+3. Fill in the following details:
+   - **Subscription:** `MySubscription`
+   - **Resource Group:** `BackupRG`
+   - **Vault Name:** `myBackupVault`
+   - **Region:** Same as VM (e.g., `Central India`)
+4. Click **Review + Create** → **Create**.
 
-Fill details:
+---
 
-Subscription: MySubscription
+## Step 2: Configure Backup Policy
 
-Resource group: BackupRG
+1. In the vault, go to: **Backup Policies** → **+ Add**.
+2. Define the schedule:
+   - **Frequency:** Daily @ 9:00 PM
+   - **Retention:** 30 days
+   - *(Optional)* Add weekly/monthly/yearly rules.
+3. Save the policy as: `DailyBackupPolicy`.
 
-Vault name: myBackupVault
+---
 
-Region: Same as VM (e.g., Central India)
+## Step 3: Enable Backup for VM
 
-Click Review + Create → Create.
+1. In the vault, go to: **Backup**
+2. Configure the following:
+   - **Workload Location:** Azure  
+   - **What to back up?:** Virtual Machine  
+   - **Select Vault:** `myBackupVault`
+3. Click **+ Backup** and select the VM (e.g., `myAppVM`).
+4. Assign the policy: `DailyBackupPolicy`.
+5. Click **Enable Backup**.
 
-Step 2: Configure Backup Policy
+> ℹ️ Azure installs the backup extension automatically.
 
-In the vault, go to Backup Policies → + Add.
+---
 
-Define schedule:
+## Step 4: Run On-Demand Backup
 
-Frequency: Daily @ 9:00 PM
+1. Go to: **Vault** → **Backup Items** → **Azure Virtual Machine**
+2. Select the VM (e.g., `myAppVM`).
+3. Click **Backup Now**.
+4. Monitor status under **Backup Jobs**.
 
-Retention: 30 days
+---
 
-(Optional) Add weekly/monthly/yearly rules.
+## Step 5: Automate Snapshot with Logic Apps
 
-Save as DailyBackupPolicy.
+1. Go to: **Logic Apps** → **+ Create**
+2. Fill the following:
+   - **Name:** `VMSnapshotScheduler`
+   - **Resource Group:** `BackupRG`
+   - **Location:** `Central India`
+   - **Plan:** `Consumption`
 
-Step 3: Enable Backup for VM
+### In the Logic App Designer:
 
-In vault → Backup.
+- **Trigger:**  
+  `Recurrence` → Daily @ 9:00 PM
 
-Workload location: Azure
+- **Action:**  
+  `Azure Resource Manager` → **Create or Update Resource**
 
-What to back up?: Virtual Machine
-
-Select vault: myBackupVault.
-
-Click + Backup, select VM (e.g., myAppVM).
-
-Assign policy: DailyBackupPolicy.
-
-Click Enable Backup.
-
-Azure installs backup extension automatically.
-
-Step 4: Run On-Demand Backup
-
-Vault → Backup Items → Azure Virtual Machine.
-
-Select VM (e.g., myAppVM).
-
-Click Backup Now.
-
-Monitor status under Backup Jobs.
-
-Step 5: Automate Snapshot with Logic Apps
-
-Go to Logic Apps → + Create.
-
-Name: VMSnapshotScheduler
-
-RG: BackupRG
-
-Location: Central India
-
-Plan: Consumption
-
-In Designer:
-
-Trigger: Recurrence → daily @ 9 PM
-
-Action: Azure Resource Manager → Create or Update Resource
-
-Resource type: Microsoft.Compute/snapshots
-
-Name: concat(variables('VMName'),'-snapshot-',utcNow('yyyyMMddHHmmss'))
-
-Properties:
-
-{
+#### Resource Details:
+- **Resource Type:** `Microsoft.Compute/snapshots`
+- **Name:**
+  ```text
+  concat(variables('VMName'), '-snapshot-', utcNow('yyyyMMddHHmmss'))
+  ```
+- Properties:
+ ```text
+  {
   "creationData": {
     "createOption": "Copy",
     "sourceResourceId": "<Your OS disk Resource ID>"
   },
-  "sku": { "name": "Standard_LRS" }
+  "sku": {
+    "name": "Standard_LRS"
+  }
 }
-
-
-Save & enable Logic App.
-
-Step 6: Restore from Backup or Snapshot
-
-Vault → Backup Items → VM → Restore VM.
-
-Select restore point.
-
-Choose restore to original or new VM.
-
-Confirm restore.
-
-✅ Summary
-Azure → Recovery Services Vault + Policy + Logic App (optional).
+```
