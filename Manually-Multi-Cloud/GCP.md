@@ -35,8 +35,7 @@
        snapshot_body = { 'name': snapshot_name }
        request = compute.disks().createSnapshot(
            project=PROJECT, zone=ZONE, disk=DISK_N_
-```
----
+
 ### Step 3: Schedule with Cloud Scheduler
 
 1. Go to: Console → Cloud Scheduler → Create job
