@@ -16,10 +16,12 @@
 ### Step 3: Assign Resources
 
 - Select DailyBackupPlan → Assign resources.
-| **Name:** BackupEC2Resources. |
-| **Type:** EC2 instance. |
-| **Instance ID:** i-0123456789abcdef0. |
-
+| **Name:** BackupEC2Resources.
+---
+| **Type:** EC2 instance. 
+---
+| **Instance ID:** i-0123456789abcdef0. 
+---
 ### Step 4: Run On-Demand Backup
 
 - Backup Plan → Create on-demand backup.
