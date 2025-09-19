@@ -1,8 +1,13 @@
 # 🔹 2. Backup Solution Using AWS EC2 Instances
+
 ### Step 1: Create Backup Vault
-- Console → AWS Backup → Backup vaults → Create vault.
- &nbsp;&nbsp;&nbsp;&nbsp;• **Name:** myBackupVault
- &nbsp;&nbsp;&nbsp;&nbsp;• **Encryption:** Default AWS key or CMK
+
+- Navigate to: **Console** → **AWS Backup** → **Backup vaults** → **Create vault**
+
+- Set the following:
+  - **Name:** `myBackupVault`
+  - **Encryption:** Default AWS key or CMK
+
 
 ### Step 2: Create Backup Plan
 - Go to **Backup Plans** → **Create**.
