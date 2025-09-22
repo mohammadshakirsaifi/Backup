@@ -53,23 +53,47 @@
 ![](./Photos/azure/az6.jpeg)
 ---
 
-## Step 5: Automate Snapshot with Logic Apps
-
-1. Go to: **Logic Apps** → **+ Create**
-2. Fill the following:
+## ✅ Step 5: Automate VM Snapshot Creation Using Azure Logic Apps
+### 1. Create a Logic App
+1. Go to: **Logic Apps** → **Click**+**Create**
+2. Fill in the following details:
    - **Name:** `VMSnapshotScheduler`
-   - **Resource Group:** `BackupRG`
+   - **Resource Group:** `BackupRG` (same as the VM backup group)
    - **Location:** `Central India`
-   - **Plan:** `Consumption`
+   - **Plan:** `Consumption` (recommended)
 
+### 2. Configure the Logic App Designer
 ### In the Logic App Designer:
 
-- **Trigger:**  
-  `Recurrence` → Daily @ 9:00 PM
+- **➤ Trigger:**  
+  Select `Recurrence` → Daily @ 9:00 PM
+  Set:
+  Frequency: Daily
+  Time: 9:00 PM (or your preferred backup window)
   ![](./Photos/azure/az7.jpeg)
 
-- **Action:**  
-  `Azure Resource Manager` → **Create or Update Resource**
+- **➤ Action:**
+-  Click + New Step → Choose `Azure Resource Manager` → **Select Create or Update Resource**
+### Fill in the following fields:
+| Field              | Value                                                                 |
+| ------------------ | --------------------------------------------------------------------- |
+| **Subscription**   | Your Azure subscription                                               |
+| **Resource Group** | Same as your VM's resource group (e.g., `BackupRG`)                   |
+| **Resource Type**  | `Microsoft.Compute/snapshots`                                         |
+| **API Version**    | Latest (e.g., `2023-09-01`)                                           |
+| **Location**       | Same as the VM (e.g., `Central India`)                                |
+| **Name**           | `concat(variables('VMName'), '-snapshot-', utcNow('yyyyMMddHHmmss'))` |
+
+### Properties:
+{
+  "creationData": {
+    "createOption": "Copy",
+    "sourceResourceId": "<Your OS disk Resource ID>"
+  },
+  "sku": {
+    "name": "Standard_LRS"
+  }
+}
 
 #### Resource Details:
 - **Resource Type:** `Microsoft.Compute/snapshots`
@@ -88,13 +112,15 @@
     "name": "Standard_LRS"
   }
 }
-```
+``` 
   ![](./Photos/azure/az8.jpeg)
-Save and enable the Logic App.
-This Logic App will run according to your schedule and create snapshots of the VM disk.
+### 3. Save & Enable the Logic App
+- Click Save
+- Enable the Logic App
+- This Logic App will now automatically run every day at 9:00 PM and create a snapshot of your VM’s OS disk.
   ![](./Photos/azure/az9.jpeg)
-### Step 6: Restore from Backup or Snapshot
 
+### Step 6: Restore from Backup or Snapshot
 1.  Go to: Vault → Backup Items → VM → Restore VM
 2.  Select a restore point
 3.   Choose to restore to:
