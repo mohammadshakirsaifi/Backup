@@ -29,15 +29,17 @@
 **Instance ID:** `i-0123456789abcdef0`
 ![](./Photos/aws/aws-3.jpeg)
 ---
-### Step 4: Run On-Demand Backup
 
-- Navigate to: **Backup Plan** → **Create on-demand backup**
-- Set the following:
+## Step 4: Run an On-Demand Backup Job
+1. Navigate to: **Backup Plan** in AWS Backup Console → **Create on-demand backup**
+2. Click Create OnDemand backup .
+3. Specify the following settings:
   - **Resource type:** EC2 instance  
   - **ID:** `i-0123456789abcdef0`  
   - **Vault:** `myBackupVault`
-  
-- Monitor the progress under **Backup Jobs**
+4. Click Create backup job to initiate an immediate snapshot.
+5. Monitor the backup job progress under the **Backup Jobs** section.  
+
 ![](./Photos/aws/aws-4.jpeg)
 ![](./Photos/aws/aws-5.jpeg)
 
