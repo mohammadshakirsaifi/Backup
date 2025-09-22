@@ -66,9 +66,9 @@
 
 - **➤ Trigger:**  
   Select `Recurrence` → Daily @ 9:00 PM
-  Set:
-  Frequency: Daily
-  Time: 9:00 PM (or your preferred backup window)
+  - Set:
+      - **Frequency:** Daily
+      - **Time:** 9:00 PM (or your preferred backup window)
 
   ![](./Photos/azure/az7.jpeg)
 
