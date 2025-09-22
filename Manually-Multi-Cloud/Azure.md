@@ -12,8 +12,6 @@
 4. Click **Review + Create** → **Create**.
    ## Recovery Services Vault 
 ![](./Photos/azure/az1.jpeg)
-## Recovery Services Vault 
-
 ---
 
 ## Step 2: Configure Backup Policy
@@ -24,7 +22,8 @@
    - **Retention:** 30 days
    - *(Optional)* Add weekly/monthly/yearly rules.
 3. Save the policy as: `DailyBackupPolicy`.
-
+   ## Create Policy
+![](./Photos/azure/az2.jpeg)
 ---
 
 ## Step 3: Enable Backup for VM
