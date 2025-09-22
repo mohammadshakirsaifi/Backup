@@ -21,10 +21,22 @@
 ### Step 3: Assign Resources
 
 - Select `DailyBackupPlan` → **Assign resources**.
+## Step 3: Assign Resources to Backup Plan
 
----
+1. In the AWS Backup console, go to Backup Plans and select your plan (e.g., DailyBackupPlan).
+2. Click Assign resources.
+3. Enter an assignment name, e.g., BackupEC2Resources.
+4. Select Resource type: EC2 instance.
+5. Specify the EC2 instance ID(s) to back up, e.g., i-0123456789abcdef0.
+6. Click Assign resources to complete the process.
 
-### Name: `BackupEC2Resources`  
+Once assigned, AWS Backup will automatically create snapshots of the selected EC2 instance's attached EBS volumes according to the defined schedule and retention settings in the backup plan.
+
+### Summary: Step 3 – Assign Resources
+
+    Select DailyBackupPlan → Assign resources
+
+**Name:** `BackupEC2Resources`  
 **Type:** EC2 instance  
 **Instance ID:** `i-0123456789abcdef0`
 ![](./Photos/aws/aws-3.jpeg)
