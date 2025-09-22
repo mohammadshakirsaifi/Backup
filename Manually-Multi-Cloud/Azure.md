@@ -10,6 +10,9 @@
    - **Vault Name:** `myBackupVault`
    - **Region:** Same as VM (e.g., `Central India`)
 4. Click **Review + Create** → **Create**.
+   ## Recovery Services Vault 
+![](./Photos/azure/az1.jpeg)
+## Recovery Services Vault 
 
 ---
 
