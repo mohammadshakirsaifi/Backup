@@ -1,4 +1,4 @@
-# 🔹🔹🔹 Implement a Backup Solution Using AWS EC2 Instance 🔹🔹🔹
+# 🔹🔹 Implement a Backup Solution Using AWS EC2 Instance 🔹🔹
 
 ### Step 1: Create Backup Vault
 
