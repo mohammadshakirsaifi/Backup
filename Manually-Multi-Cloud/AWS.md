@@ -12,12 +12,13 @@
 - Name: `DailyBackupPlan`
   
   **Add rule:**  
-• **Name:** `DailyBackupRule`  
-• **Frequency:** Daily @ 9:00 PM UTC  
-• **Retention:** 30 days  
-• **Vault:** `myBackupVault`
+  &nbsp;&nbsp;&nbsp;&nbsp;• **Name:** `DailyBackupRule`  
+  &nbsp;&nbsp;&nbsp;&nbsp;• **Frequency:** Daily @ 9:00 PM UTC  
+  &nbsp;&nbsp;&nbsp;&nbsp;• **Retention:** 30 days  
+  &nbsp;&nbsp;&nbsp;&nbsp;• **Vault:** `myBackupVault`
   
 ![](./Photos/aws/aws-2.jpeg)
+
 ### Step 3: Assign Resources
 
 - Select `DailyBackupPlan` → **Assign resources**.
@@ -32,14 +33,13 @@
 
 Once assigned, AWS Backup will automatically create snapshots of the selected EC2 instance's attached EBS volumes according to the defined schedule and retention settings in the backup plan.
 
+![](./Photos/aws/aws-3.jpeg)
 ### Summary: Step 3 – Assign Resources
 
-    Select DailyBackupPlan → Assign resources
-
-**Name:** `BackupEC2Resources`  
-**Type:** EC2 instance  
-**Instance ID:** `i-0123456789abcdef0`
-![](./Photos/aws/aws-3.jpeg)
+- Select DailyBackupPlan → Assign resources
+- **Name:** `BackupEC2Resources`
+- **Type:** EC2 instance
+- **Instance ID:** `i-0123456789abcdef0`
 ---
 
 ## Step 4: Run an On-Demand Backup Job
