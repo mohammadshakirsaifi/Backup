@@ -38,6 +38,7 @@
 5. Click **Enable Backup**.
 
 > ℹ️ Azure installs the backup extension automatically.
+![](./Photos/azure/az3.jpeg)
 
 ---
 
@@ -47,7 +48,9 @@
 2. Select the VM (e.g., `myAppVM`).
 3. Click **Backup Now**.
 4. Monitor status under **Backup Jobs**.
-
+![](./Photos/azure/az4.jpeg)
+![](./Photos/azure/az5.jpeg)
+![](./Photos/azure/az6.jpeg)
 ---
 
 ## Step 5: Automate Snapshot with Logic Apps
@@ -63,6 +66,7 @@
 
 - **Trigger:**  
   `Recurrence` → Daily @ 9:00 PM
+  ![](./Photos/azure/az7.jpeg)
 
 - **Action:**  
   `Azure Resource Manager` → **Create or Update Resource**
@@ -85,6 +89,10 @@
   }
 }
 ```
+  ![](./Photos/azure/az8.jpeg)
+Save and enable the Logic App.
+This Logic App will run according to your schedule and create snapshots of the VM disk.
+  ![](./Photos/azure/az9.jpeg)
 ### Step 6: Restore from Backup or Snapshot
 
 1.  Go to: Vault → Backup Items → VM → Restore VM
@@ -93,6 +101,8 @@
 - Original VM, or
 - New VM
 4. Confirm restore.
+    ![](./Photos/azure/az10.jpeg)
+    ![](./Photos/azure/az11.jpeg)
 
 ### ✅ Summary
 **Recovery Services Vault** → Backup Policy + Enable Backup on VM + (Optional) Logic App for Snapshots
