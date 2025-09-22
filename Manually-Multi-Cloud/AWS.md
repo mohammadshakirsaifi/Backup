@@ -49,8 +49,8 @@ AWS Backup manages daily snapshot creation according to the schedules defined in
 - When you assign an EC2 instance to a backup plan, AWS Backup automatically creates snapshots of the attached EBS volumes based on your specified schedule and retention settings.
 - This removes the need for custom automation scripts or manual triggers using Lambda and EventBridge.
 ### Summary: Step 5 – Automation (Snapshots)
-    - Recommended: Handled automatically by AWS Backup plans
-    - Optional (Custom): Use AWS Lambda + EventBridge if advanced or non-standard logic is required
+     Recommended: Handled automatically by AWS Backup plans
+     Optional (Custom): Use AWS Lambda + EventBridge if advanced or non-standard logic is required
 
 ### Step 6: Restore EC2
 - Go to Protected resources → Backup vault.
