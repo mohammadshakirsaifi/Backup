@@ -52,10 +52,19 @@ AWS Backup manages daily snapshot creation according to the schedules defined in
      Recommended: Handled automatically by AWS Backup plans
      Optional (Custom): Use AWS Lambda + EventBridge if advanced or non-standard logic is required
 
-### Step 6: Restore EC2
-- Go to Protected resources → Backup vault.
-- Select backup → Restore.
-- Choose restore options (new instance or original).
+## Step 6: Restore from Backup
+1. Navigate to Protected Resources or Backup Vault in the AWS Backup console.
+2. Select the backup you want to restore.
+3. Click Restore.
+4. Choose your restore options, such as restoring to the original EC2 instance or launching a new one.
+5. Confirm the restore action and monitor the progress.
+ 
+ ###  Summary: Step 6 – Restore EC2
+     - Go to Protected Resources → Backup Vault
+     - Select the backup → Click Restore
+     - Choose restore options (original instance or new EC2 instance)
+     - Confirm and monitor the restore process
+
 ![](./Photos/aws/aws-6.jpeg)
 ![](./Photos/aws/aws-7.jpeg)
 
