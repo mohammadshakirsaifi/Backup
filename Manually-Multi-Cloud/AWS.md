@@ -12,10 +12,10 @@
 - Name: `DailyBackupPlan`
   
   **Add rule:**  
-  &nbsp;&nbsp;&nbsp;&nbsp;• **Name:** `DailyBackupRule`  
-  &nbsp;&nbsp;&nbsp;&nbsp;• **Frequency:** Daily @ 9:00 PM UTC  
-  &nbsp;&nbsp;&nbsp;&nbsp;• **Retention:** 30 days  
-  &nbsp;&nbsp;&nbsp;&nbsp;• **Vault:** `myBackupVault`
+• **Name:** `DailyBackupRule`  
+• **Frequency:** Daily @ 9:00 PM UTC  
+• **Retention:** 30 days  
+• **Vault:** `myBackupVault`
   
 ![](./Photos/aws/aws-2.jpeg)
 ### Step 3: Assign Resources
