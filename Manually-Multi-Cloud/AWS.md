@@ -41,9 +41,16 @@
 ![](./Photos/aws/aws-4.jpeg)
 ![](./Photos/aws/aws-5.jpeg)
 
-### Step 5: Automation (Snapshots)
-- Handled automatically by AWS Backup Plans.
-- Custom: Use Lambda + EventBridge if needed.
+## Step 5: Automate Snapshot Creation Using AWS Backup (Handled by Backup Plan)
+- The AWS Backup service automatically creates snapshots and backup copies based on assigned backup plans—no additional automation tools are needed.
+- For custom automation scenarios, you can use AWS Lambda with Amazon EventBridge (formerly CloudWatch Events) to trigger EC2 snapshots. However, the native AWS Backup service is recommended for simplicity and maintainability.
+
+AWS Backup manages daily snapshot creation according to the schedules defined in your backup plan:
+- When you assign an EC2 instance to a backup plan, AWS Backup automatically creates snapshots of the attached EBS volumes based on your specified schedule and retention settings.
+- This removes the need for custom automation scripts or manual triggers using Lambda and EventBridge.
+### Summary: Step 5 – Automation (Snapshots)
+    - Recommended: Handled automatically by AWS Backup plans
+    - Optional (Custom): Use AWS Lambda + EventBridge if advanced or non-standard logic is required
 
 ### Step 6: Restore EC2
 - Go to Protected resources → Backup vault.
