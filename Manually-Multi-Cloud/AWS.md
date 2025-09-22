@@ -1,11 +1,22 @@
-# 🔹 2. Backup Solution Using AWS EC2 Instances
+# 🔹🔹🔹 Implement a Backup Solution Using AWS EC2 Instance 🔹🔹🔹
 
 ### Step 1: Create Backup Vault
-- Navigate to: **Console** → **AWS Backup** → **Backup vaults** → **Create vault**
 
-- Set the following:
-  - **Name:** `myBackupVault`
-  - **Encryption:** Default AWS key or CMK
+ 
+## Step 1: Create a Backup Vault
+
+1. Sign in to the AWS Management Console.
+2. Navigate to: **Console** → **AWS Backup** → **Backup vaults** → **Create vault**
+3.  Configure the vault settings:
+   - **Vault name:** myBackupVault
+   - **Encryption key:** Use the default AWS managed key or select/create a Customer Managed Key (CMK)
+4. Click Create vault to save.
+
+### Summary: Prepare AWS Backup Vault
+- **Service:** AWS Backup
+- **Vault name:** myBackupVault
+- **Encryption:** Default AWS KMS key or a CMK
+
 ![](./Photos/aws/aws-1.jpeg)
 ### Step 2: Create Backup Plan
 
@@ -21,7 +32,7 @@
 - **Backup vault:** Select myBackupVault
 5. Click Create plan (or Save plan) to finalize.
 
-### Summary: Step 2 – Create Backup Plan
+### Summary:  Create Backup Plan
 - Go to **Backup Plans** → **Create**.
 - Name: `DailyBackupPlan`
   **Add rule:**  
@@ -32,13 +43,9 @@
   
 ![](./Photos/aws/aws-2.jpeg)
 
-### Step 3: Assign Resources
-
-- Select `DailyBackupPlan` → **Assign resources**.
 ## Step 3: Assign Resources to Backup Plan
-
-1. In the AWS Backup console, go to Backup Plans and select your plan (e.g., DailyBackupPlan).
-2. Click Assign resources.
+1. In the AWS Backup console, go to Backup Plans and select your plan (e.g., `DailyBackupPlan`).
+2. Click **Assign resources**.
 3. Enter an assignment name, e.g., BackupEC2Resources.
 4. Select Resource type: EC2 instance.
 5. Specify the EC2 instance ID(s) to back up, e.g., i-0123456789abcdef0.
@@ -47,7 +54,7 @@
 Once assigned, AWS Backup will automatically create snapshots of the selected EC2 instance's attached EBS volumes according to the defined schedule and retention settings in the backup plan.
 
 ![](./Photos/aws/aws-3.jpeg)
-### Summary: Step 3 – Assign Resources
+### Summary: Assign Resources
 
 - Select DailyBackupPlan → Assign resources
 - **Name:** `BackupEC2Resources`
@@ -75,7 +82,7 @@ Once assigned, AWS Backup will automatically create snapshots of the selected EC
 AWS Backup manages daily snapshot creation according to the schedules defined in your backup plan:
 - When you assign an EC2 instance to a backup plan, AWS Backup automatically creates snapshots of the attached EBS volumes based on your specified schedule and retention settings.
 - This removes the need for custom automation scripts or manual triggers using Lambda and EventBridge.
-### Summary: Step 5 – Automation (Snapshots)
+### Summary: Automation (Snapshots)
      Recommended: Handled automatically by AWS Backup plans
      Optional (Custom): Use AWS Lambda + EventBridge if advanced or non-standard logic is required
 
@@ -86,7 +93,7 @@ AWS Backup manages daily snapshot creation according to the schedules defined in
 4. Choose your restore options, such as restoring to the original EC2 instance or launching a new one.
 5. Confirm the restore action and monitor the progress.
  
- ###  Summary: Step 6 – Restore EC2
+ ###  Summary: Restore EC2
       Go to Protected Resources → Backup Vault
       Select the backup → Click Restore
       Choose restore options (original instance or new EC2 instance)
