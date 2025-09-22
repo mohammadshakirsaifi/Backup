@@ -8,11 +8,24 @@
   - **Encryption:** Default AWS key or CMK
 ![](./Photos/aws/aws-1.jpeg)
 ### Step 2: Create Backup Plan
+
+1. In the AWS Backup console, go to Backup Plans → Create backup plan.
+2. Choose Build a new plan or Start with a template, depending on your preference.
+3. Enter a name for your backup plan, e.g., DailyBackupPlan.
+4. Define the backup rule with the following settings:
+
+- **Rule name:** DailyBackupRule
+- **Backup frequency:** Daily at 9:00 PM UTC (adjust if needed)
+- **Backup window:** e.g., 1 hour
+- **Retention period:** 30 days
+- **Backup vault:** Select myBackupVault
+5. Click Create plan (or Save plan) to finalize.
+
+### Summary: Step 2 – Create Backup Plan
 - Go to **Backup Plans** → **Create**.
 - Name: `DailyBackupPlan`
-  
   **Add rule:**  
-  &nbsp;&nbsp;&nbsp;&nbsp;• **Name:** `DailyBackupRule`  
+  &nbsp;&nbsp;&nbsp;&nbsp;• **Rule Name:** `DailyBackupRule`  
   &nbsp;&nbsp;&nbsp;&nbsp;• **Frequency:** Daily @ 9:00 PM UTC  
   &nbsp;&nbsp;&nbsp;&nbsp;• **Retention:** 30 days  
   &nbsp;&nbsp;&nbsp;&nbsp;• **Vault:** `myBackupVault`
