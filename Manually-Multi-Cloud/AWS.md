@@ -1,10 +1,6 @@
-# 🔹🔹 Implement a Backup Solution Using AWS EC2 Instance 🔹🔹
+# 🔹🔹 Implement a Backup Solution Using AWS EC2 Instance 🔹🔹 
 
-### Step 1: Create Backup Vault
-
- 
 ## Step 1: Create a Backup Vault
-
 1. Sign in to the AWS Management Console.
 2. Navigate to: **Console** → **AWS Backup** → **Backup vaults** → **Create vault**
 3.  Configure the vault settings:
