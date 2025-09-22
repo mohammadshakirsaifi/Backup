@@ -43,7 +43,6 @@
 ---
 
 ## Step 4: Run On-Demand Backup
-
 1. Go to: **Vault** → **Backup Items** → **Azure Virtual Machine**
 2. Select the VM (e.g., `myAppVM`).
 3. Click **Backup Now**.
@@ -70,6 +69,7 @@
   Set:
   Frequency: Daily
   Time: 9:00 PM (or your preferred backup window)
+
   ![](./Photos/azure/az7.jpeg)
 
 - **➤ Action:**
